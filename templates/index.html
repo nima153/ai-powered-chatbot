@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orbit | AI Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">O</span><span>orbit</span></div>
+      <div class="status"><span class="status-dot"></span><span>AI assistant online</span></div>
+      <div class="sidebar-rule"></div>
+      <p class="eyebrow">YOUR SPACE</p>
+      <button class="new-chat" id="new-chat" type="button"><span>+</span> New conversation</button>
+      <div class="sidebar-note">
+        <span class="note-icon">*</span>
+        <p>Your conversations stay in this browser.</p>
+      </div>
+      <div class="sidebar-footer">DIALOGPT SMALL<br><span>Local model workspace</span></div>
+    </aside>
+
+    <section class="chat-panel">
+      <header class="chat-header">
+        <div>
+          <p class="eyebrow">CONVERSATION</p>
+          <h1>Ask Orbit anything<span class="accent">.</span></h1>
+        </div>
+        <div class="model-chip"><span class="pulse"></span> Ready</div>
+      </header>
+
+      <div class="messages" id="messages" aria-live="polite">
+        <div class="welcome-block" id="welcome">
+          <div class="welcome-orbit">O</div>
+          <p class="eyebrow">A QUIET PLACE TO THINK</p>
+          <h2>What is on your mind?</h2>
+          <p class="welcome-copy">Start a conversation and let the ideas take shape.</p>
+          <div class="suggestions">
+            <button type="button" data-prompt="Give me three creative ideas for today">Creative ideas <span>↗</span></button>
+            <button type="button" data-prompt="Help me make a simple plan">Make a plan <span>↗</span></button>
+            <button type="button" data-prompt="Explain something interesting to me">Teach me something <span>↗</span></button>
+          </div>
+        </div>
+      </div>
+
+      <form class="composer" id="chat-form">
+        <div class="composer-box">
+          <textarea id="message-input" rows="1" maxlength="2000" placeholder="Write a message..." aria-label="Message"></textarea>
+          <button class="send-button" type="submit" aria-label="Send message" title="Send message">↑</button>
+        </div>
+        <div class="composer-meta"><span>Press Enter to send · Shift + Enter for a new line</span><span id="counter">0 / 2000</span></div>
+      </form>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
